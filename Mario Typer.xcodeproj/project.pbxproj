@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1101DDFD1C10A87900994611 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = 1101DDFC1C10A87900994611 /* stb_image.c */; };
+		116862B81C0716C3004AD29A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 116862B71C0716C3004AD29A /* main.cpp */; };
+		116862BF1C0718BB004AD29A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116862BE1C0718BB004AD29A /* GLUT.framework */; };
+		116862C11C0718BF004AD29A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116862C01C0718BF004AD29A /* OpenGL.framework */; };
+		116862C31C0718C5004AD29A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116862C21C0718C5004AD29A /* Cocoa.framework */; };
+		116862CB1C0719BF004AD29A /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 116862C41C0719BF004AD29A /* Mesh.cpp */; };
+		11F878A61C35BD41004E8A02 /* LightSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11F878A41C35BD41004E8A02 /* LightSource.cpp */; };
+		11F878A91C35BE00004E8A02 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11F878A71C35BE00004E8A02 /* Material.cpp */; };
+		11F878AC1C35BF09004E8A02 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11F878AA1C35BF09004E8A02 /* Object.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		116862AB1C071557004AD29A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1101DDFC1C10A87900994611 /* stb_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_image.c; sourceTree = "<group>"; };
+		116862AD1C071557004AD29A /* Mario Typer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Mario Typer"; sourceTree = BUILT_PRODUCTS_DIR; };
+		116862B71C0716C3004AD29A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		116862BA1C071744004AD29A /* float2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float2.h; sourceTree = "<group>"; };
+		116862BB1C071744004AD29A /* float3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float3.h; sourceTree = "<group>"; };
+		116862BC1C071744004AD29A /* float4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float4.h; sourceTree = "<group>"; };
+		116862BD1C071744004AD29A /* float4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float4x4.h; sourceTree = "<group>"; };
+		116862BE1C0718BB004AD29A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		116862C01C0718BF004AD29A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		116862C21C0718C5004AD29A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		116862C41C0719BF004AD29A /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
+		116862C51C0719BF004AD29A /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		11DBA47B1C177DB4005C5220 /* web2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = web2; sourceTree = "<group>"; };
+		11EFBE9B1C18DB1F00C17ADE /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		11F878A41C35BD41004E8A02 /* LightSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightSource.cpp; sourceTree = "<group>"; };
+		11F878A51C35BD41004E8A02 /* LightSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LightSource.hpp; sourceTree = "<group>"; };
+		11F878A71C35BE00004E8A02 /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		11F878A81C35BE00004E8A02 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
+		11F878AA1C35BF09004E8A02 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		11F878AB1C35BF09004E8A02 /* Object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		116862AA1C071557004AD29A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				116862C31C0718C5004AD29A /* Cocoa.framework in Frameworks */,
+				116862C11C0718BF004AD29A /* OpenGL.framework in Frameworks */,
+				116862BF1C0718BB004AD29A /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		116862A41C071555004AD29A = {
+			isa = PBXGroup;
+			children = (
+				116862C21C0718C5004AD29A /* Cocoa.framework */,
+				116862C01C0718BF004AD29A /* OpenGL.framework */,
+				116862BE1C0718BB004AD29A /* GLUT.framework */,
+				116862AF1C071557004AD29A /* Mario Typer */,
+				116862AE1C071557004AD29A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		116862AE1C071557004AD29A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				116862AD1C071557004AD29A /* Mario Typer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		116862AF1C071557004AD29A /* Mario Typer */ = {
+			isa = PBXGroup;
+			children = (
+				11EFBE9B1C18DB1F00C17ADE /* res */,
+				116862B91C071732004AD29A /* float */,
+				116862B71C0716C3004AD29A /* main.cpp */,
+				116862C41C0719BF004AD29A /* Mesh.cpp */,
+				116862C51C0719BF004AD29A /* Mesh.hpp */,
+				1101DDFC1C10A87900994611 /* stb_image.c */,
+				11DBA47B1C177DB4005C5220 /* web2 */,
+				11F878A41C35BD41004E8A02 /* LightSource.cpp */,
+				11F878A51C35BD41004E8A02 /* LightSource.hpp */,
+				11F878A71C35BE00004E8A02 /* Material.cpp */,
+				11F878A81C35BE00004E8A02 /* Material.hpp */,
+				11F878AA1C35BF09004E8A02 /* Object.cpp */,
+				11F878AB1C35BF09004E8A02 /* Object.hpp */,
+			);
+			name = "Mario Typer";
+			path = 3DGame;
+			sourceTree = "<group>";
+		};
+		116862B91C071732004AD29A /* float */ = {
+			isa = PBXGroup;
+			children = (
+				116862BA1C071744004AD29A /* float2.h */,
+				116862BB1C071744004AD29A /* float3.h */,
+				116862BC1C071744004AD29A /* float4.h */,
+				116862BD1C071744004AD29A /* float4x4.h */,
+			);
+			name = float;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		116862AC1C071557004AD29A /* Mario Typer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 116862B41C071558004AD29A /* Build configuration list for PBXNativeTarget "Mario Typer" */;
+			buildPhases = (
+				116862A91C071557004AD29A /* Sources */,
+				116862AA1C071557004AD29A /* Frameworks */,
+				116862AB1C071557004AD29A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mario Typer";
+			productName = 3DGame;
+			productReference = 116862AD1C071557004AD29A /* Mario Typer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		116862A51C071556004AD29A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Soeren Walls";
+				TargetAttributes = {
+					116862AC1C071557004AD29A = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 116862A81C071556004AD29A /* Build configuration list for PBXProject "Mario Typer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 116862A41C071555004AD29A;
+			productRefGroup = 116862AE1C071557004AD29A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				116862AC1C071557004AD29A /* Mario Typer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		116862A91C071557004AD29A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				116862CB1C0719BF004AD29A /* Mesh.cpp in Sources */,
+				11F878A61C35BD41004E8A02 /* LightSource.cpp in Sources */,
+				11F878AC1C35BF09004E8A02 /* Object.cpp in Sources */,
+				116862B81C0716C3004AD29A /* main.cpp in Sources */,
+				11F878A91C35BE00004E8A02 /* Material.cpp in Sources */,
+				1101DDFD1C10A87900994611 /* stb_image.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		116862B21C071558004AD29A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		116862B31C071558004AD29A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		116862B51C071558004AD29A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Mario Typer";
+			};
+			name = Debug;
+		};
+		116862B61C071558004AD29A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Mario Typer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		116862A81C071556004AD29A /* Build configuration list for PBXProject "Mario Typer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116862B21C071558004AD29A /* Debug */,
+				116862B31C071558004AD29A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		116862B41C071558004AD29A /* Build configuration list for PBXNativeTarget "Mario Typer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116862B51C071558004AD29A /* Debug */,
+				116862B61C071558004AD29A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 116862A51C071556004AD29A /* Project object */;
+}

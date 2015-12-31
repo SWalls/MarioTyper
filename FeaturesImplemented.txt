@@ -1,0 +1,34 @@
+Mario Typer by Soeren Walls
+Dec 9, 2015
+
+HOW TO PLAY: Use arrow keys to move between stations. Type the word
+at a station in order to shoot a fireball at the incoming ghost enemy
+before it gets to you.
+
+FEATURES IMPLEMENTED
+
+[Yes - Press F1 to switch to noclip camera and move with WASD + mouse.]
+Helicam - 20 pts. The camera should always look at the avatar, or at the point where the avatar is immediately heading (position + velocity * something). The distance from the avatar needs to be kept reasonably constant.
+
+[Yes]
+Plane-projected shadows - 15 pts.
+Shadows of objects should appear on the ground to give a sense of altitude (or the lack of it).
+
+[Yes - Press F2 to toggle visible collision spheres.]
+Collision detection - 20 pts.
+Consider the avatar and all other objects spherical. If the distance between the positions is less than the radii added, then bam!, collision. Something observable must happen on collision (e.g. the game ends, the game restarts, the screen blinks red, the player loses a life, the avatar takes damage, the weapon is upgraded, etc.).
+
+[Yes]
+Disappearing objects - 10 pts.
+Support removing objects from the virtual world by any mechanism (e.g. on collision, when a timer expires, on key down, etc.).
+
+[Yes - To shoot, type the word.]
+Fire at will - 20 pts.
+The avatar should spawn projectiles on some input.
+
+[Yes]
+Seeker AI - 20 pts.
+Some type of objects should move towards the avatar. If you have 'Game physics', use acceleration and air drag. What (if anything) happens on impact is up to you.
+
+[Extra]
+Rewrote OBJ parsing in Mesh.cpp and Mesh.h files to allow for importing of many more OBJ files from the internet.
