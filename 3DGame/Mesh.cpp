@@ -27,50 +27,50 @@ using namespace std;
 
 Mesh::Mesh(const char *filename)
 {
-	fstream file(filename); 
-	if(!file.is_open())
+    fstream file(filename);
+    if(!file.is_open())
     {
         // char * dir = getcwd(NULL, 0); // Platform-dependent, see reference link below
         // printf("Current dir: %s\n", dir);
         printf("file %s not found\n", filename);
-		return;
-	}
-
-	char buffer[256];
-	while(!file.eof())
-	{
-		file.getline(buffer,256);
-		rows.push_back(new string(buffer));
-	}
-
-	submeshFaces.push_back(std::vector<Face*>());
+        return;
+    }
+    
+    char buffer[256];
+    while(!file.eof())
+    {
+        file.getline(buffer,256);
+        rows.push_back(new string(buffer));
+    }
+    
+    submeshFaces.push_back(std::vector<Face*>());
     std::vector<Face*>* faces = &submeshFaces.at(submeshFaces.size()-1);
     bool noTexture = false;
-
-	for(int i = 0; i < rows.size(); i++)
-	{
-		if(rows[i]->empty() || (*rows[i])[0] == '#' || (*rows[i])[0] == 's' || (*rows[i])[0] == 'u') // usemtl
-			continue;      
-		else if((*rows[i])[0] == 'v' && (*rows[i])[1] == ' ')
-		{
-			float tmpx,tmpy,tmpz;
-			sscanf(rows[i]->c_str(), "v %f %f %f" ,&tmpx,&tmpy,&tmpz);      
-			positions.push_back(new float3(tmpx,tmpy,tmpz));  
-		}
-		else if((*rows[i])[0] == 'v' && (*rows[i])[1] == 'n')
-		{
-			float tmpx,tmpy,tmpz;
-			sscanf(rows[i]->c_str(), "vn %f %f %f" ,&tmpx,&tmpy,&tmpz);
-			normals.push_back(new float3(tmpx,tmpy,tmpz));
-		}
-		else if((*rows[i])[0] == 'v' && (*rows[i])[1] == 't')
-		{
-			float tmpx,tmpy;
-			sscanf(rows[i]->c_str(), "vt %f %f" ,&tmpx,&tmpy);
-			texcoords.push_back(new float2(tmpx,tmpy));
-		}
-		else if((*rows[i])[0] == 'f')  
-		{
+    
+    for(int i = 0; i < rows.size(); i++)
+    {
+        if(rows[i]->empty() || (*rows[i])[0] == '#' || (*rows[i])[0] == 's' || (*rows[i])[0] == 'u') // usemtl
+            continue;
+        else if((*rows[i])[0] == 'v' && (*rows[i])[1] == ' ')
+        {
+            float tmpx,tmpy,tmpz;
+            sscanf(rows[i]->c_str(), "v %f %f %f" ,&tmpx,&tmpy,&tmpz);
+            positions.push_back(new float3(tmpx,tmpy,tmpz));
+        }
+        else if((*rows[i])[0] == 'v' && (*rows[i])[1] == 'n')
+        {
+            float tmpx,tmpy,tmpz;
+            sscanf(rows[i]->c_str(), "vn %f %f %f" ,&tmpx,&tmpy,&tmpz);
+            normals.push_back(new float3(tmpx,tmpy,tmpz));
+        }
+        else if((*rows[i])[0] == 'v' && (*rows[i])[1] == 't')
+        {
+            float tmpx,tmpy;
+            sscanf(rows[i]->c_str(), "vt %f %f" ,&tmpx,&tmpy);
+            texcoords.push_back(new float2(tmpx,tmpy));
+        }
+        else if((*rows[i])[0] == 'f')
+        {
             Face* f = new Face();
             int numVert = -1; // instantiate to -1 in order to skip the "f" at the beginning
             string format1 = "%d/%d/%d"; // given position, texture, and normal
@@ -82,13 +82,13 @@ Mesh::Mesh(const char *filename)
             while(row >> word) {
                 if(numVert > -1) {
                     int matched = sscanf(word.c_str(), format1.c_str(),
-                           &f->positionIndices[numVert],
-                           &f->texcoordIndices[numVert],
-                           &f->normalIndices[numVert]);
+                                         &f->positionIndices[numVert],
+                                         &f->texcoordIndices[numVert],
+                                         &f->normalIndices[numVert]);
                     if(matched < 3) {
                         matched = sscanf(word.c_str(), format2.c_str(),
-                               &f->positionIndices[numVert],
-                               &f->normalIndices[numVert]);
+                                         &f->positionIndices[numVert],
+                                         &f->normalIndices[numVert]);
                         f->texcoordIndices[numVert] = 0;
                         if(matched == 2)
                             noTexture = true;
@@ -112,34 +112,34 @@ Mesh::Mesh(const char *filename)
             f->isQuad = numVert == 4;
             f->isPentagon = numVert == 5;
             faces->push_back(f);
-		}
-		else if((*rows[i])[0] == 'g')
-		{
-			if(faces->size() > 0)
-			{
-				submeshFaces.push_back(std::vector<Face*>());
-				faces = &submeshFaces.at(submeshFaces.size()-1);
-			}
         }
-                  
+        else if((*rows[i])[0] == 'g')
+        {
+            if(faces->size() > 0)
+            {
+                submeshFaces.push_back(std::vector<Face*>());
+                faces = &submeshFaces.at(submeshFaces.size()-1);
+            }
+        }
+        
     }
     
     if(noTexture)
         printf("Texture cannot be applied to this OBJ (%s).\n", filename);
-
-	modelid = glGenLists(submeshFaces.size());
-
-	for(int iSubmesh=0; iSubmesh<submeshFaces.size(); iSubmesh++)
-	{
-		std::vector<Face*>& faces = submeshFaces.at(iSubmesh);
-
+    
+    modelid = glGenLists(submeshFaces.size());
+    
+    for(int iSubmesh=0; iSubmesh<submeshFaces.size(); iSubmesh++)
+    {
+        std::vector<Face*>& faces = submeshFaces.at(iSubmesh);
+        
         glNewList(modelid + iSubmesh,GL_COMPILE);
         
         float3 *normal, *pos;
         float2 *texCoord;
-
-		glBegin(GL_TRIANGLES);
-		for(int i=0;i<faces.size();i++)
+        
+        glBegin(GL_TRIANGLES);
+        for(int i=0;i<faces.size();i++)
         {
             if(faces[i]->isPentagon)
             {
@@ -186,7 +186,7 @@ Mesh::Mesh(const char *filename)
                     }
                 }
             }
-			else if(faces[i]->isQuad)
+            else if(faces[i]->isQuad)
             {
                 for(int j=0; j<4; j++) {
                     if(j==3) continue;
@@ -218,8 +218,8 @@ Mesh::Mesh(const char *filename)
                         glVertex3f(pos->x,pos->y,pos->z);
                     }
                 }
-			}
-			else
+            }
+            else
             {
                 for(int j=0; j<3; j++) {
                     if(normals.size() > 0) {
@@ -235,36 +235,36 @@ Mesh::Mesh(const char *filename)
                         glVertex3f(pos->x,pos->y,pos->z);
                     }
                 }
-			}
-		}
-		glEnd();
-
-		glEndList();
-	}
+            }
+        }
+        glEnd();
+        
+        glEndList();
+    }
 }
 
 void Mesh::draw()
 {
-	for(int iSubmesh=0; iSubmesh<submeshFaces.size(); iSubmesh++)
-		glCallList(modelid + iSubmesh);
+    for(int iSubmesh=0; iSubmesh<submeshFaces.size(); iSubmesh++)
+        glCallList(modelid + iSubmesh);
 }
 
 void Mesh::drawSubmesh(unsigned int iSubmesh)
 {
-	glCallList(modelid + iSubmesh);
+    glCallList(modelid + iSubmesh);
 }
 
 Mesh::~Mesh()
 {
-	for(unsigned int i = 0; i < rows.size(); i++)
-		delete rows[i];   
-	for(unsigned int i = 0; i < positions.size(); i++)
-		delete positions[i];
-	for(unsigned int i = 0; i < submeshFaces.size(); i++)
-		for(unsigned int j = 0; j < submeshFaces.at(i).size(); j++)
-			delete submeshFaces.at(i).at(j); 
-	for(unsigned int i = 0; i < normals.size(); i++)
-		delete normals[i];
-	for(unsigned int i = 0; i < texcoords.size(); i++)
-		delete texcoords[i];
+    for(unsigned int i = 0; i < rows.size(); i++)
+        delete rows[i];   
+    for(unsigned int i = 0; i < positions.size(); i++)
+        delete positions[i];
+    for(unsigned int i = 0; i < submeshFaces.size(); i++)
+        for(unsigned int j = 0; j < submeshFaces.at(i).size(); j++)
+            delete submeshFaces.at(i).at(j); 
+    for(unsigned int i = 0; i < normals.size(); i++)
+        delete normals[i];
+    for(unsigned int i = 0; i < texcoords.size(); i++)
+        delete texcoords[i];
 }

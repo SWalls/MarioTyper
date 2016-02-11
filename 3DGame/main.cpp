@@ -57,52 +57,52 @@ std::string pickRandomWord(int level)
 
 class Camera
 {
-	float3 eye;
-
-	float3 ahead;
-	float3 lookAt;
-	float3 right;
-	float3 up;
-
-	float fov;
-	float aspect;
-
-	float2 lastMousePos;
-	float2 mouseDelta;
+    float3 eye;
+    
+    float3 ahead;
+    float3 lookAt;
+    float3 right;
+    float3 up;
+    
+    float fov;
+    float aspect;
+    
+    float2 lastMousePos;
+    float2 mouseDelta;
     
     bool inMotion = false;
     bool moveLeft = false;
     float motionAngle = 0;
-
+    
 public:
-	float3 getEye()
-	{
-		return eye;
-	}
-	Camera()
-	{
-		eye = float3(0, 0.75, 0);
-		lookAt = float3(0, 0, 0);
-		right = float3(1, 0, 0);
-		up = float3(0, 1, 0);
-
-		fov = 1.1;
-		aspect  = 1;
-	}
-
-	void apply()
-	{
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		gluPerspective(fov /3.14*180, aspect, 0.1, 500);
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		gluLookAt(eye.x, eye.y, eye.z, lookAt.x, lookAt.y, lookAt.z, 0.0, 1.0, 0.0);
-	}
-
-	void setAspectRatio(float ar) { aspect= ar; }
-
-	void move(float dt, std::vector<bool>& keysPressed, bool noClip)
+    float3 getEye()
+    {
+        return eye;
+    }
+    Camera()
+    {
+        eye = float3(0, 0.75, 0);
+        lookAt = float3(0, 0, 0);
+        right = float3(1, 0, 0);
+        up = float3(0, 1, 0);
+        
+        fov = 1.1;
+        aspect  = 1;
+    }
+    
+    void apply()
+    {
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        gluPerspective(fov /3.14*180, aspect, 0.1, 500);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        gluLookAt(eye.x, eye.y, eye.z, lookAt.x, lookAt.y, lookAt.z, 0.0, 1.0, 0.0);
+    }
+    
+    void setAspectRatio(float ar) { aspect= ar; }
+    
+    void move(float dt, std::vector<bool>& keysPressed, bool noClip)
     {
         float yaw = atan2f( ahead.x, ahead.z );
         float pitch = -atan2f( ahead.y, sqrtf(ahead.x * ahead.x + ahead.z * ahead.z) );
@@ -159,22 +159,22 @@ public:
         right = ahead.cross(float3(0, 1, 0)).normalize();
         up = right.cross(ahead);
         lookAt = eye + ahead;
-	}
-
-	void startDrag(int x, int y)
-	{
-		lastMousePos = float2(x, y);
-	}
-	void drag(int x, int y)
-	{
-		float2 mousePos(x, y);
-		mouseDelta = mousePos - lastMousePos;
-		lastMousePos = mousePos;
-	}
-	void endDrag()
-	{
-		mouseDelta = float2(0, 0);
-	}
+    }
+    
+    void startDrag(int x, int y)
+    {
+        lastMousePos = float2(x, y);
+    }
+    void drag(int x, int y)
+    {
+        float2 mousePos(x, y);
+        mouseDelta = mousePos - lastMousePos;
+        lastMousePos = mousePos;
+    }
+    void endDrag()
+    {
+        mouseDelta = float2(0, 0);
+    }
     
     bool isMoving() {
         return inMotion;
@@ -187,16 +187,16 @@ public:
     float getMotionAngle() {
         return (motionAngle/180) * M_PI;
     }
-
+    
 };
 
 class Scene
 {
-	Camera camera;
+    Camera camera;
     Ground *ground;
     Object *avatar;
     
-	std::vector<LightSource*> lightSources;
+    std::vector<LightSource*> lightSources;
     std::vector<Object*> objects;
     std::vector<Mesh*> meshes;
     std::vector<Material*> materials;
@@ -216,18 +216,18 @@ class Scene
     int wordsBeginTypingIndex[4]; // the character position of each word at which user should type next letter
     
 public:
-	void initialize()
+    void initialize()
     {
         // BUILD THE SCENE HERE
         
-		lightSources.push_back(
-			new DirectionalLight(
-				float3(1, 1, -1).normalize(),
-				float3(1, 0.5, 1)));
-		lightSources.push_back(
-			new PointLight(
-				float3(-1, -1, 1), 
-				float3(0.2, 0.1, 0.1)));
+        lightSources.push_back(
+                               new DirectionalLight(
+                                                    float3(1, 1, -1).normalize(),
+                                                    float3(1, 0.5, 1)));
+        lightSources.push_back(
+                               new PointLight(
+                                              float3(-1, -1, 1),
+                                              float3(0.2, 0.1, 0.1)));
         
         Material* yellowDiffuseMaterial = new Material();
         yellowDiffuseMaterial->kd = float3(1, 1, 0);
@@ -335,17 +335,17 @@ public:
         
         reset();
         
-	}
+    }
     
-	~Scene()
-	{
-		for (std::vector<LightSource*>::iterator iLightSource = lightSources.begin(); iLightSource != lightSources.end(); ++iLightSource)
-			delete *iLightSource;
-		for (std::vector<Material*>::iterator iMaterial = materials.begin(); iMaterial != materials.end(); ++iMaterial)
-			delete *iMaterial;
-		for (std::vector<Object*>::iterator iObject = objects.begin(); iObject != objects.end(); ++iObject)
-			delete *iObject;
-	}
+    ~Scene()
+    {
+        for (std::vector<LightSource*>::iterator iLightSource = lightSources.begin(); iLightSource != lightSources.end(); ++iLightSource)
+            delete *iLightSource;
+        for (std::vector<Material*>::iterator iMaterial = materials.begin(); iMaterial != materials.end(); ++iMaterial)
+            delete *iMaterial;
+        for (std::vector<Object*>::iterator iObject = objects.begin(); iObject != objects.end(); ++iObject)
+            delete *iObject;
+    }
     
     void reset()
     {
@@ -374,20 +374,20 @@ public:
         
         // mario
         avatar = (new MeshInstance(meshes.at(1), materials.at(1), Object::AVATAR))
-                    ->scale(float3(0.008, 0.008, 0.008))
-                    ->translate(float3(0, 0, 1))
-                    ->rotate(10);
+        ->scale(float3(0.008, 0.008, 0.008))
+        ->translate(float3(0, 0, 1))
+        ->rotate(10);
         objects.push_back(avatar);
         
         camera = *new Camera();
         camera.setAspectRatio((float)window_width/window_height);
         
     }
-
-	Camera& getCamera()
-	{
-		return camera;
-	}
+    
+    Camera& getCamera()
+    {
+        return camera;
+    }
     
     Object* getAvatar()
     {
@@ -483,11 +483,11 @@ public:
                 printf("Word #%d is now: %s\n", side, words[side].c_str());
                 // boo
                 Object *boo = (new Enemy(meshes.at(2), materials.at(2), side, (int)words[side].length(), Object::ENEMY))
-                                ->scale(float3(0.005, 0.005, 0.005))
-                                ->translate(float3(8*fmod(side,2)*(side > 1 ? -1 : 1),
-                                                   1.5,
-                                                   8*fmod(side+1,2)*(side > 1 ? -1 : 1)))
-                                ->rotate(180 + 90*side);
+                ->scale(float3(0.005, 0.005, 0.005))
+                ->translate(float3(8*fmod(side,2)*(side > 1 ? -1 : 1),
+                                   1.5,
+                                   8*fmod(side+1,2)*(side > 1 ? -1 : 1)))
+                ->rotate(180 + 90*side);
                 objects.push_back(boo);
             } else {
                 // printf("Tried changing #%d.\n", side+1);
@@ -515,30 +515,30 @@ public:
             }
         }
     }
-
-	void draw()
-	{
+    
+    void draw()
+    {
         camera.apply();
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_BLEND);
-		unsigned int iLightSource=0;
-		for (; iLightSource<lightSources.size(); iLightSource++)
-		{
-			glEnable(GL_LIGHT0 + iLightSource);
-			lightSources.at(iLightSource)->apply(GL_LIGHT0 + iLightSource);
-		}
+        unsigned int iLightSource=0;
+        for (; iLightSource<lightSources.size(); iLightSource++)
+        {
+            glEnable(GL_LIGHT0 + iLightSource);
+            lightSources.at(iLightSource)->apply(GL_LIGHT0 + iLightSource);
+        }
         iLightSource=0;
-		for (; iLightSource<GL_MAX_LIGHTS; iLightSource++)
-			glDisable(GL_LIGHT0 + iLightSource);
-
-		for (unsigned int iObject=0; iObject<objects.size(); iObject++)
+        for (; iLightSource<GL_MAX_LIGHTS; iLightSource++)
+            glDisable(GL_LIGHT0 + iLightSource);
+        
+        for (unsigned int iObject=0; iObject<objects.size(); iObject++)
         {
             objects.at(iObject)->draw(showSpheres);
             float3 lightDir = lightSources.at(0)->getLightDirAt(float3(0,0,0));
             objects.at(iObject)->drawShadow(lightDir, ground->getNormal(), ground->getPosition());
         }
         drawWord();
-	}
+    }
     
     void drawWord()
     {
@@ -555,7 +555,7 @@ public:
             glColor3f(1.0f, 0.0f, 0.0f);
             glRasterPos2f((float)window_width/2.0f - 50, (float)window_height/2.0f);
         }
-        std::string str = gameOver ? "YOU DIED" : (gamePaused ? "PAUSED" : words[avatarPosition]);
+        std::string str = gameOver ? "YOU DIED" : (gamePaused ? "PAUSED (PRESS 2 TO UNPAUSE)" : words[avatarPosition]);
         std::transform(str.begin(), str.end(), str.begin(), ::toupper);
         float wordStartX = ((float)window_width/2.0f) - (str.length()*8);
         float wordStartY = (float)window_height*0.95f;
@@ -634,32 +634,32 @@ void parseDictionary()
 void onDisplay( ) {
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear screen
-
-	scene.draw();
- 
+    
+    scene.draw();
+    
     glutSwapBuffers(); // drawing finished
 }
 
 void onIdle()
 {
-	double t = glutGet(GLUT_ELAPSED_TIME)*0.001;        	// time elapsed since starting this program in sec
-	static double lastTime = 0.0;
-	double dt = t - lastTime;
-	lastTime = t;
-
+    double t = glutGet(GLUT_ELAPSED_TIME)*0.001;        	// time elapsed since starting this program in sec
+    static double lastTime = 0.0;
+    double dt = t - lastTime;
+    lastTime = t;
+    
     scene.control(t, dt, keysPressed);
-
-	glutPostRedisplay();
+    
+    glutPostRedisplay();
 }
 
 void onKeyboard(unsigned char key, int x, int y)
 {
-	keysPressed.at(key) = true;
+    keysPressed.at(key) = true;
 }
 
 void onKeyboardUp(unsigned char key, int x, int y)
 {
-	keysPressed.at(key) = false;
+    keysPressed.at(key) = false;
 }
 
 void onSpecialKey(int key, int x, int y)
@@ -716,22 +716,22 @@ void onMouse(int button, int state, int x, int y)
 {
     if(button == GLUT_LEFT_BUTTON) {
         if(state == GLUT_DOWN) {
-			scene.getCamera().startDrag(x, y);
+            scene.getCamera().startDrag(x, y);
         } else {
-			scene.getCamera().endDrag();
+            scene.getCamera().endDrag();
         }
     }
 }
 
 void onMouseMotion(int x, int y)
 {
-	scene.getCamera().drag(x, y);
+    scene.getCamera().drag(x, y);
 }
 
 void onReshape(int winWidth, int winHeight)
 {
-	glViewport(0, 0, winWidth, winHeight);
-	scene.getCamera().setAspectRatio((float)winWidth/winHeight);
+    glViewport(0, 0, winWidth, winHeight);
+    scene.getCamera().setAspectRatio((float)winWidth/winHeight);
 }
 
 int main(int argc, char **argv) {
@@ -744,29 +744,29 @@ int main(int argc, char **argv) {
     glutInitWindowSize(window_width, window_height);				// startup window size
     glutInitWindowPosition(100, 100);           // where to put window on screen
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);    // 8 bit R,G,B,A + double buffer + depth buffer
- 
+    
     glutCreateWindow("Mario Typer by Soeren Walls");	// application window is created and displayed
- 
+    
     glViewport(0, 0, window_width, window_height);
-
+    
     glutDisplayFunc(onDisplay);					// register callback
     glutIdleFunc(onIdle);						// register callback
     glutReshapeFunc(onReshape);
-	glutKeyboardFunc(onKeyboard);
-	glutKeyboardUpFunc(onKeyboardUp);
+    glutKeyboardFunc(onKeyboard);
+    glutKeyboardUpFunc(onKeyboardUp);
     glutSpecialFunc(onSpecialKey);
     glutSpecialUpFunc(onSpecialKeyUp);
-	glutMouseFunc(onMouse);
-	glutMotionFunc(onMouseMotion);
-
-	glEnable(GL_LIGHTING);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_NORMALIZE);
-
-	scene.initialize();
-	for(int i=0; i<262; i++)
-		keysPressed.push_back(false);
-
+    glutMouseFunc(onMouse);
+    glutMotionFunc(onMouseMotion);
+    
+    glEnable(GL_LIGHTING);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_NORMALIZE);
+    
+    scene.initialize();
+    for(int i=0; i<262; i++)
+        keysPressed.push_back(false);
+    
     glutMainLoop();								// launch event handling loop
     
     return 0;

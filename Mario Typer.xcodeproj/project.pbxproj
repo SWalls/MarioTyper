@@ -37,13 +37,12 @@
 		116862BA1C071744004AD29A /* float2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float2.h; sourceTree = "<group>"; };
 		116862BB1C071744004AD29A /* float3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float3.h; sourceTree = "<group>"; };
 		116862BC1C071744004AD29A /* float4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float4.h; sourceTree = "<group>"; };
-		116862BD1C071744004AD29A /* float4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = float4x4.h; sourceTree = "<group>"; };
 		116862BE1C0718BB004AD29A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		116862C01C0718BF004AD29A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		116862C21C0718C5004AD29A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		116862C41C0719BF004AD29A /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		116862C51C0719BF004AD29A /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
-		11DBA47B1C177DB4005C5220 /* web2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = web2; sourceTree = "<group>"; };
+		11D453D81C6D537F00BED9EC /* ospd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ospd.txt; sourceTree = "<group>"; };
 		11EFBE9B1C18DB1F00C17ADE /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		11F878A41C35BD41004E8A02 /* LightSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightSource.cpp; sourceTree = "<group>"; };
 		11F878A51C35BD41004E8A02 /* LightSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LightSource.hpp; sourceTree = "<group>"; };
@@ -95,7 +94,7 @@
 				116862C41C0719BF004AD29A /* Mesh.cpp */,
 				116862C51C0719BF004AD29A /* Mesh.hpp */,
 				1101DDFC1C10A87900994611 /* stb_image.c */,
-				11DBA47B1C177DB4005C5220 /* web2 */,
+				11D453D81C6D537F00BED9EC /* ospd.txt */,
 				11F878A41C35BD41004E8A02 /* LightSource.cpp */,
 				11F878A51C35BD41004E8A02 /* LightSource.hpp */,
 				11F878A71C35BE00004E8A02 /* Material.cpp */,
@@ -113,7 +112,6 @@
 				116862BA1C071744004AD29A /* float2.h */,
 				116862BB1C071744004AD29A /* float3.h */,
 				116862BC1C071744004AD29A /* float4.h */,
-				116862BD1C071744004AD29A /* float4x4.h */,
 			);
 			name = float;
 			sourceTree = "<group>";
